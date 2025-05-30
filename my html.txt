@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Card Slider</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --hero-width: 100%;
+      --hero-height: 100vh;
+
+      --card-width: 200px;
+      --card-height: 320px;
+      --card-border-radius: 20px;
+      --card-margin: 16px;
+      --card-padding: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .hero_section {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      background-image: url("https://i.postimg.cc/tCk1v4H2/3877461.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero_section_details {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card_fullscreen_details {
+      animation: slideInText 1s ease forwards;
+    }
+
+    .card_fullscreen_details h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    .card_fullscreen_details p {
+      font-size: 1.2rem;
+    }
+
+    .hero_section_card_slider {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      overflow-x: auto;
+      padding: 20px;
+    }
+
+    .card_container {
+      display: flex;
+      gap: 16px;
+    }
+
+    .card {
+      width: var(--card-width);
+      height: var(--card-height);
+      border-radius: var(--card-border-radius);
+      background-size: cover;
+      background-position: center;
+      padding: var(--card-padding);
+      display: flex;
+      align-items: flex-end;
+      box-shadow: 5px 6px 5px 1px rgb(0 0 0 / 40%);
+      animation: slideUp 1s ease forwards;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card_info {
+      background: rgba(0,0,0,0.4);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .card_info h1 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .card_info p {
+      font-size: 0.9rem;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInText {
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero_section {
+        flex-direction: column;
+      }
+
+      .hero_section_card_slider {
+        justify-content: center;
+        overflow-x: scroll;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero_section">
+    <div class="hero_section_details">
+      <div class="card_fullscreen_details">
+        <p>Nara, Japan</p>
+        <h1>Mount Yoshino</h1>
+      </div>
+    </div>
+    <div class="hero_section_card_slider">
+      <div class="card_container">
+        <div class="card" style="background-image: url('https://i.postimg.cc/tCk1v4H2/3877461.jpg')">
+          <div class="card_info">
+            <p>Nara, Japan</p>
+            <h1>Mount Yoshino</h1>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('https://i.postimg.cc/63PcvfM4/download.jpg')">
+          <div class="card_info">
+            <p>Wakayama, Japan</p>
+            <h1>Kumano-Nachi</h1>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('https://i.postimg.cc/3wfr2kmD/download-1.jpg')">
+          <div class="card_info">
+            <p>Kyoto, Japan</p>
+            <h1>Daigoji Temple</h1>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('https://i.postimg.cc/N0dkhvrw/download-3.jpg')">
+          <div class="card_info">
+            <p>Hyogo, Japan</p>
+            <h1>Himeji Castle</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
